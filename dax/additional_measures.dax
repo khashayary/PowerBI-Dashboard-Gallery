@@ -1,0 +1,35 @@
+// Additional measures for Retail Sales Analytics
+// These measures require the existing Sales table and Date table.
+// Create each measure separately in Power BI Desktop.
+
+2024 Net Sales =
+CALCULATE ( [Total Sales], 'Date'[Year] = 2024 )
+
+2025 Net Sales =
+CALCULATE ( [Total Sales], 'Date'[Year] = 2025 )
+
+Sales YoY Change =
+[2025 Net Sales] - [2024 Net Sales]
+
+Sales YoY Change % =
+DIVIDE ( [Sales YoY Change], [2024 Net Sales] )
+
+Orders per Channel =
+DISTINCTCOUNT ( Sales[OrderID] )
+
+Channel Share % =
+DIVIDE (
+    [Total Sales],
+    CALCULATE ( [Total Sales], ALLSELECTED ( Sales[Channel] ) )
+)
+
+Average Discount % =
+AVERAGE ( Sales[DiscountRate] )
+
+Profit per Order =
+DIVIDE ( [Gross Profit], [Orders] )
+
+// Use the existing [Gross Margin %] measure for category, channel,
+// and segment margin visuals.
+// The 2024 and 2025 measures are designed for an unfiltered period
+// comparison; year slicers can intentionally alter the filtered context.

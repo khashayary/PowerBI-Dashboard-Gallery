@@ -1,0 +1,36 @@
+{
+  "name": "KAY POWER HUB Retail Analytics",
+  "dataColors": [
+    "#136BD8",
+    "#F2C811",
+    "#0B9F96",
+    "#7654C8",
+    "#3288E8",
+    "#D85A5A"
+  ],
+  "background": "#F1F5FA",
+  "foreground": "#15283F",
+  "tableAccent": "#136BD8",
+  "textClasses": {
+    "title": {
+      "fontFace": "Segoe UI",
+      "fontSize": 13,
+      "color": "#15283F"
+    },
+    "header": {
+      "fontFace": "Segoe UI",
+      "fontSize": 12,
+      "color": "#15283F"
+    },
+    "label": {
+      "fontFace": "Segoe UI",
+      "fontSize": 10,
+      "color": "#657789"
+    },
+    "callout": {
+      "fontFace": "Segoe UI",
+      "fontSize": 25,
+      "color": "#15283F"
+    }
+  }
+}

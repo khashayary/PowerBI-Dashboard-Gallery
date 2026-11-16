@@ -1,0 +1,30 @@
+{
+  "Orders": 960,
+  "Units Sold": 2780,
+  "Net Sales": 294773.58,
+  "Total Cost": 182588.0,
+  "Gross Profit": 112185.58,
+  "Gross Margin Percent": 38.0582,
+  "Average Order Value": 307.06,
+  "Sales by Region": {
+    "North": 66290.08,
+    "East": 72075.09,
+    "South": 75987.29,
+    "West": 80421.12
+  },
+  "Sales by Category": {
+    "Technology": 39613.66,
+    "Lifestyle": 43255.48,
+    "Office": 74635.66,
+    "Home": 137268.78
+  },
+  "Sales by Channel": {
+    "Online": 157255.84,
+    "Retail": 101576.23,
+    "Partner": 35941.51
+  },
+  "Annual Sales": {
+    "2024": 147117.28,
+    "2025": 147656.3
+  }
+}
