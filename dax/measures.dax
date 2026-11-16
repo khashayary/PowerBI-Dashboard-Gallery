@@ -1,0 +1,41 @@
+// Create this calendar as a NEW TABLE in Power BI.
+// Name: Date
+Date =
+ADDCOLUMNS (
+    CALENDAR ( DATE ( 2024, 1, 1 ), DATE ( 2025, 12, 31 ) ),
+    "Year", YEAR ( [Date] ),
+    "Month Number", MONTH ( [Date] ),
+    "Month Name", FORMAT ( [Date], "MMMM" ),
+    "Year Month", FORMAT ( [Date], "yyyy-MM" )
+)
+
+// Relationship: Date[Date] (one side) --> Sales[OrderDate] (many side).
+// Mark 'Date' as date table using Date[Date].
+// Create each of the following as a SEPARATE measure, ideally in the Sales table.
+
+Total Sales = SUM ( Sales[NetSales] )
+
+Total Cost = SUM ( Sales[COGS] )
+
+Gross Profit = [Total Sales] - [Total Cost]
+
+Gross Margin % = DIVIDE ( [Gross Profit], [Total Sales] )
+
+Units Sold = SUM ( Sales[Units] )
+
+Orders = DISTINCTCOUNT ( Sales[OrderID] )
+
+Average Order Value = DIVIDE ( [Total Sales], [Orders] )
+
+Sales Previous Year =
+CALCULATE (
+    [Total Sales],
+    SAMEPERIODLASTYEAR ( 'Date'[Date] )
+)
+
+Sales YoY % =
+DIVIDE ( [Total Sales] - [Sales Previous Year], [Sales Previous Year] )
+
+// For 2024, previous year is outside the synthetic dataset, so YoY is blank.
+// Format Gross Margin % and Sales YoY % as percentages.
+// Format monetary measures as MYR currency to two decimal places.
